@@ -2,8 +2,8 @@
 -export([tr/1]).
 -include_lib("eunit/include/eunit.hrl").
 
-%% This module only performs one
-%% transfer. The rationele is
+%% This module only performs one transfer.
+%% The rationele is
 %% we want maximum testability
 
 %% Krivine's machine (K-machine)

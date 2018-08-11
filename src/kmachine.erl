@@ -1,7 +1,13 @@
 -module(kmachine).
+
 -export([eval/1]).
+
 -import(kmachine_tr, [tr/1]).
+
+-ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
+-compile(export_all).
+-endif.
 
 eval(State) ->
     case kmachine_tr:tr(State) of
@@ -14,6 +20,8 @@ eval(State) ->
 %%
 %% TESTS
 %%
+
+-ifdef(TEST).
 
 -define(NIL, []).
 -define(V0, {deBruijn, 0}). %% #0
@@ -42,3 +50,5 @@ eval3_test_() ->
     Out = eval(In),
     Expected = ?B1,
     ?_assert(Out =:= Expected).
+
+-endif.
